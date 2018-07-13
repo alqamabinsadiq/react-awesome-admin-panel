@@ -7,7 +7,7 @@ import routes from './App/routes';
 import App from './App/App';
 // import Login from './Login/Login';
 // import { ensureAuthenticated } from '../utils/authentication';
-import { route } from '../actions/user';
+import { route } from '../actions/users';
 import NotFound from '../components/NotFoundPage/NotFoundPage';
 // import { PrivateRoute } from '../components/PrivateRoute';
 

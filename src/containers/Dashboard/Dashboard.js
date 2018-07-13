@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { Col, Row, Select, Spin, LocaleProvider } from 'antd';
 import NumberCard from '../../components/NumberCard/NumberCard';
 import { connect } from 'react-redux';
-import { getCount } from '../../actions/tasks';
-import { getAllProperties, setCurrentProperty } from '../../actions/property';
+// import { getCount } from '../../actions/tasks';
+// import { getAllProperties, setCurrentProperty } from '../../actions/property';
 const Option = Select.Option;
 import enUS from 'antd/lib/locale-provider/en_US';
 // import { socketConnect } from 'socket.io-react';
@@ -27,29 +27,29 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    this.props.getAllProperties().then(() => {
-      this.props.getCount(this.props.allProperties[0]._id);
-      this.props.setCurrentProperty(this.props.allProperties[0]._id);
-      this.setState({
-        dataSource: this.props.allProperties,
-        currentPropId: this.props.allProperties[0]._id,
-        loading: false
-      });
-    });
+    // this.props.getAllProperties().then(() => {
+    //   this.props.getCount(this.props.allProperties[0]._id);
+    //   this.props.setCurrentProperty(this.props.allProperties[0]._id);
+    //   this.setState({
+    //     dataSource: this.props.allProperties,
+    //     currentPropId: this.props.allProperties[0]._id,
+    //     loading: false
+    //   });
+    // });
   }
 
-  onDropdownValueChange(id) {
-    this.props.setCurrentProperty(id);
-    this.setState({
-      loading: true,
-      currentPropId: id,
-    });
-    this.props.getCount(id).then(() => {
-      this.setState({
-        loading: false
-      });
-    });
-  }
+  // onDropdownValueChange(id) {
+  //   this.props.setCurrentProperty(id);
+  //   this.setState({
+  //     loading: true,
+  //     currentPropId: id,
+  //   });
+  //   this.props.getCount(id).then(() => {
+  //     this.setState({
+  //       loading: false
+  //     });
+  //   });
+  // }
 
   renderNumberCards() {
     this.numbers = [
@@ -157,17 +157,17 @@ Dashboard.propTypes = {
 
 };
 
-const mapStateToProps = (state) => {
-  return {
-    activeTasks: state.tasks.activeTasks,
-    pendingTasks: state.tasks.pendingTasks,
-    completeUnit: state.tasks.completeUnit,
-    pendingUnit: state.tasks.pendingUnit,
-    unassignedTasks: state.tasks.unassignedTasks,
-    vacantLeased: state.tasks.vacantLeased,
-    vacantNotLeased: state.tasks.vacantNotLeased,
-    allProperties: state.property.allProperties
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     activeTasks: state.tasks.activeTasks,
+//     pendingTasks: state.tasks.pendingTasks,
+//     completeUnit: state.tasks.completeUnit,
+//     pendingUnit: state.tasks.pendingUnit,
+//     unassignedTasks: state.tasks.unassignedTasks,
+//     vacantLeased: state.tasks.vacantLeased,
+//     vacantNotLeased: state.tasks.vacantNotLeased,
+//     allProperties: state.property.allProperties
+//   };
+// };
 
-export default connect(mapStateToProps, { getCount, getAllProperties, setCurrentProperty })(Dashboard);
+export default connect(null)(Dashboard);

@@ -5,7 +5,7 @@ const { Header, Content, Footer, Sider } = Layout;
 import SliderMenu from '../../components/Menu/Menu';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
-import { logout } from '../../actions/user';
+import { logout } from '../../actions/users';
 import Notifications from '../Notification/NotificationsContainer';
 import ModalContainer from '../Modal';
 import 'antd/dist/antd.css';
@@ -14,7 +14,7 @@ const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
 // Icons
-import Logo from '../../styles/images/cambio.png';
+import Logo from '../../styles/images/logo.png';
 // Styles
 // import './App.css';
 
