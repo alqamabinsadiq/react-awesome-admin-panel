@@ -81,11 +81,6 @@ class Dashboard extends Component {
         title: 'Vacant Leased',
         type: 'leased',
         number: 200
-      },
-      {
-        title: 'Vacant Not Leased',
-        type: 'notLeased',
-        number: 2000
       }
     ];
     return (this.numbers.map((item, key) => <Col key={key} span={8} >

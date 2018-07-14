@@ -22,18 +22,6 @@ class SliderMenu extends Component {
           <Icon type="clock-circle-o" />
           <span>Property Tracker</span>
         </Menu.Item>
-        <Menu.Item key="/dashboard/users">
-          <Icon type="team" />
-          <span>Workers</span>
-        </Menu.Item>
-        <Menu.Item key="/dashboard/tasks">
-          <Icon type="flag" />
-          <span>Tasks</span>
-        </Menu.Item>
-        <Menu.Item key="/dashboard/worker-pay-rates">
-          <Icon type="pay-circle" />
-          <span>Worker Pay Rates</span>
-        </Menu.Item>
       </Menu>
     );
   }
