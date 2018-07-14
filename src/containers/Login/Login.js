@@ -23,8 +23,8 @@ class LoginForm extends Component {
         this.setState({
           loginButtonLoading: true
         });
-        return new Promise((resolve) => {
-          return this.props.login(values, resolve);
+        return new Promise((resolve, reject) => {
+          return this.props.login(values, resolve, reject);
         }).
           then(() => {
             this.setState({

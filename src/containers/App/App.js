@@ -84,7 +84,7 @@ class App extends Component {
               </div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>
-              Contact <a href="mailto:everest@rockvillesolutions.com">everest@rockvillesolutions.com</a> for issues.
+              Contact <a href="mailto:alqamabinsadiq@gmail.com">alqamabinsadiq@gmail.com</a> for issues.
           </Footer>
           </Layout>
         </Layout>

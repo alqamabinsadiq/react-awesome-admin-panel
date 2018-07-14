@@ -16,26 +16,24 @@ const styles = {
 const NumberCard = (props) => {
   const { icon, color, title, number, link } = props;
   return (
-    <a href={link}>
-      <Card loading={number >= 0 ? false : true} className={"numberCard"} bordered={false} bodyStyle={{ padding: 0 }}>
-        {icon ?
-          <Icon className={"iconWarp"} style={{ color }} type={icon} />
-          : null}
-        <div className={"content"}>
-          <p className={"title"}>{title || 'No Title'}</p>
-          <p className={"number"}>
-            <CountUp
-              start={0}
-              end={number}
-              duration={2.75}
-              useEasing
-              useGrouping
-              separator=','
-            />
-          </p>
-        </div>
-      </Card>
-    </a>);
+    <Card loading={number >= 0 ? false : true} className={"numberCard"} bordered={false} bodyStyle={{ padding: 0 }}>
+      {icon ?
+        <Icon className={"iconWarp"} style={{ color }} type={icon} />
+        : null}
+      <div className={"content"}>
+        <p className={"title"}>{title || 'No Title'}</p>
+        <p className={"number"}>
+          <CountUp
+            start={0}
+            end={number}
+            duration={2.75}
+            useEasing
+            useGrouping
+            separator=','
+          />
+        </p>
+      </div>
+    </Card>);
 };
 
 NumberCard.propTypes = {

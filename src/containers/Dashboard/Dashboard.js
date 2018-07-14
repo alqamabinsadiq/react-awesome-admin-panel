@@ -69,17 +69,21 @@ class Dashboard extends Component {
       },
       {
         type: 'complete',
-        title: 'Completed Unit',
+        title: 'Total Startups',
+        icon: 'rocket',
+        color: 'purple',
         number: 100
       },
       {
-        title: 'Unassigned Tasks',
+        title: 'Active Users',
         type: 'unassigned',
+        icon: 'team',
         number: 100
       },
       {
-        title: 'Vacant Leased',
-        type: 'leased',
+        title: 'Pending Users',
+        type: 'user-add',
+        icon: 'user-add',
         number: 200
       }
     ];
