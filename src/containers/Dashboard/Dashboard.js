@@ -20,7 +20,7 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       dataSource: [],
-      loading: true
+      // loading: true
     };
     // props.socket.emit('get-online-user');
     // props.socket.on('online-user-update', msg => console.log(msg));
@@ -56,44 +56,37 @@ class Dashboard extends Component {
       {
         title: 'Active Tasks',
         type: 'active',
-        number: this.props.activeTasks
+        number: 200
       }, {
         title: 'Pending Tasks',
         type: 'pending',
-        number: this.props.pendingTasks
+        number: 300
       },
       {
         title: 'Pending Units',
         type: 'pending',
-        number: this.props.pendingUnit
+        number: 150
       },
       {
         type: 'complete',
         title: 'Completed Unit',
-        number: this.props.completeUnit
+        number: 100
       },
       {
         title: 'Unassigned Tasks',
         type: 'unassigned',
-        number: this.props.unassignedTasks
+        number: 100
       },
       {
         title: 'Vacant Leased',
         type: 'leased',
-        number: this.props.vacantLeased,
-        link: '/dashboard/property-tracker?Vacant Leased'
+        number: 200
       },
       {
         title: 'Vacant Not Leased',
         type: 'notLeased',
-        link: '/dashboard/property-tracker?Vacant Not Leased',
-        number: this.props.vacantNotLeased
-      },
-      // {
-      //   title: 'Online Users',
-      //   type: 'online',
-      //   number: 2
-      // }
+        number: 2000
+      }
     ];
     return (this.numbers.map((item, key) => <Col key={key} span={8} >
       <NumberCard {...item} />
@@ -103,30 +96,6 @@ class Dashboard extends Component {
   render() {
     return (
       <div style={{ background: '#ECECEC' }}>
-        <Row gutter={24} style={{ marginBottom: 10 }} type="flex" justify="end">
-          <Col >
-            <LocaleProvider locale={enUS}>
-              <Select
-                showSearch
-                style={{ width: 200 }}
-                value={this.state.currentPropId}
-                placeholder="Select a property"
-                optionFilterProp="children"
-                onChange={this.onDropdownValueChange.bind(this)}
-                filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
-              >
-                {/* <Option value={1} key={1}>Alqama</Option> */}
-                {
-                  this.state.dataSource ? this.state.dataSource.map((item) => {
-                    return (
-                      <Option value={item._id} key={item._id}>{item.name}</Option>
-                    );
-                  }) : null
-                }
-              </Select>
-            </LocaleProvider>
-          </Col>
-        </Row>
         {this.state.loading ?
           <Row gutter={48} type="flex" justify="center" align="middle">
             <Col>

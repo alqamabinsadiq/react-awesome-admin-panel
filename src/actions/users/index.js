@@ -31,7 +31,16 @@ export const setUserToken = (userToken) => ({
   data: userToken
 });
 
-
+export const login = ({ username, password }, resolve) => {
+  return (dispatch) => {
+    if (username === 'awesome' && password === 'awesome') {
+      sessionStorage.setItem('userId', 1);
+      sessionStorage.setItem('token', 'user.token');
+      window.location = '/dashboard';
+      resolve();
+    }
+  };
+};
 
 
 export const logout = () => {

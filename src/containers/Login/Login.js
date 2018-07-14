@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Row, Form, Input } from 'antd';
-// import { login } from '../../actions/users';
+import { login } from '../../actions/users';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import Notifications from '../Notification/NotificationsContainer';
@@ -18,26 +18,26 @@ class LoginForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // this.props.form.validateFieldsAndScroll((err, values) => {
-    //   if (!err) {
-    //     this.setState({
-    //       loginButtonLoading: true
-    //     });
-    //     return new Promise((resolve) => {
-    //       return this.props.login(values, resolve);
-    //     }).
-    //       then(() => {
-    //         this.setState({
-    //           loginButtonLoading: false
-    //         });
-    //       }).
-    //       catch(() => {
-    //         this.setState({
-    //           loginButtonLoading: false
-    //         });
-    //       });
-    //   }
-    // });
+    this.props.form.validateFieldsAndScroll((err, values) => {
+      if (!err) {
+        this.setState({
+          loginButtonLoading: true
+        });
+        return new Promise((resolve) => {
+          return this.props.login(values, resolve);
+        }).
+          then(() => {
+            this.setState({
+              loginButtonLoading: false
+            });
+          }).
+          catch(() => {
+            this.setState({
+              loginButtonLoading: false
+            });
+          });
+      }
+    });
   }
 
   render() {
@@ -79,4 +79,4 @@ class LoginForm extends Component {
       </div>);
   }
 }
-export default connect(null)(Form.create()(LoginForm));
+export default connect(null, { login })(Form.create()(LoginForm));
