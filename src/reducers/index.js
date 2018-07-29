@@ -3,7 +3,7 @@ import { routerReducer } from 'react-router-redux';
 import { reducer as notifications } from 'react-notification-system-redux';
 
 // Root Reducer.
-export default combineReducer({
+export default combineReducers({
   notifications,
   routing: routerReducer,
 });
