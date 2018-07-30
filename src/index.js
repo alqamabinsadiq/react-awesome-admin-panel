@@ -5,7 +5,7 @@ import { AppContainer } from 'react-hot-loader';
 // import { ConnectedRouter } from 'react-router-redux';
 import './styles/styles.scss';
 import 'antd/dist/antd.css';
-import Login from './containers/Login/Login';
+import App from './containers/App/App';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore, { history } from './store/configureStore';
 
@@ -14,7 +14,7 @@ registerServiceWorker();
 render(
   <AppContainer>
     <Provider store={store}>
-      <Login />
+      <App />
     </Provider>
   </AppContainer>,
   document.getElementById('root')
