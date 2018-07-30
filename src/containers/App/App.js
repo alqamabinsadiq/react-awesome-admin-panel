@@ -63,8 +63,8 @@ class App extends Component {
             <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
               Content
           </Content>
-            <Footer style={{ textAlign: 'center' }}>
-              Contact: <a href="mailto:alqamabinsadiq@gmail.com">alqamabinsadiq@gmail.com</a>
+            <Footer style={{ textAlign: 'center', fontFamily: 'Arimo', fontSize: '12px' }}>
+              <b>Contact:</b> <a href="mailto:alqamabinsadiq@gmail.com">alqamabinsadiq@gmail.com</a>
             </Footer>
           </Layout>
         </Layout>
