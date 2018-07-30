@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import Notifications from '../Notification/Notification';
 const { Header, Sider, Content, Footer } = Layout;
+const SubMenu = Menu.SubMenu;
+const MenuItemGroup = Menu.ItemGroup;
 
 class App extends Component {
   state = {
@@ -41,12 +43,22 @@ class App extends Component {
             </Menu>
           </Sider>
           <Layout>
-            <Header style={{ background: '#fff', padding: 0 }}>
+            <Header style={{ background: '#fff', padding: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <Icon
                 className="trigger"
                 type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                 onClick={this.toggle}
               />
+              <Menu
+                mode="horizontal"
+              >
+                <SubMenu title={<span><Icon type="user" />Admin</span>}>
+                  <MenuItemGroup title="Settings">
+                    <Menu.Item key="setting:1">Logout</Menu.Item>
+                    <Menu.Item key="setting:2">Option 2</Menu.Item>
+                  </MenuItemGroup>
+                </SubMenu>
+              </Menu>
             </Header>
             <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
               Content
