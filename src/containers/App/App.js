@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import Notifications from '../Notification/Notification';
+import Logo from '../../styles/images/logo.png';
 const { Header, Sider, Content, Footer } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -26,7 +27,10 @@ class App extends Component {
             collapsible
             collapsed={this.state.collapsed}
           >
-            <div className="logo" />
+            <div className="logo">
+              <img src={Logo} alt="logo" />
+              <span>Admin Panel</span>
+            </div>
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
               <Menu.Item key="1">
                 <Icon type="user" />

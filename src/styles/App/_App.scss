@@ -1,3 +1,4 @@
+@import "./fonts";
 // Main Root
 .reactRoot{
   height: 100%;
@@ -16,8 +17,19 @@
 
 .logo {
   height: 32px;
-  background: rgba(255,255,255,.2);
   margin: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+  img{
+    height: 40px;
+    margin-right: 5px;
+  }
+  span{
+    font-family: $sourcesans;
+  }
 }
 
 .ant-layout-footer {
@@ -27,5 +39,25 @@
 
 .ant-layout-content {
   margin-bottom: 1px !important;
+}
+
+.ant-menu-item, .ant-menu-submenu-title{
+  font-size: 12px;
+}
+
+.ant-layout-sider {
+  background: #404040;
+}
+
+.ant-menu-dark, .ant-menu-dark .ant-menu-sub{
+  background: #404040;
+}
+
+.ant-menu-vertical .ant-menu-item, .ant-menu-vertical-left .ant-menu-item, 
+.ant-menu-vertical-right .ant-menu-item, .ant-menu-inline .ant-menu-item, 
+.ant-menu-vertical .ant-menu-submenu-title, .ant-menu-vertical-left 
+.ant-menu-submenu-title, .ant-menu-vertical-right .ant-menu-submenu-title, 
+.ant-menu-inline .ant-menu-submenu-title{
+  font-size: 13px;
 }
 }
