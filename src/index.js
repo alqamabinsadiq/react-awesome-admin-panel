@@ -14,7 +14,9 @@ registerServiceWorker();
 render(
   <AppContainer>
     <Provider store={store}>
-      <App />
+      <App>
+        <div>Admin Panel's Content</div>
+      </App>
     </Provider>
   </AppContainer>,
   document.getElementById('root')
