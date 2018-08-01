@@ -1,7 +1,10 @@
 {
   "name": "react-awesome-admin-panel",
   "version": "0.1.0",
-  "private": true,
+  "author": {
+    "name": "Alqama Bin Sadiq",
+    "email": "alqamabinsadiq@gmail.com"
+  },
   "dependencies": {
     "antd": "^3.7.3",
     "autoprefixer": "7.1.6",
