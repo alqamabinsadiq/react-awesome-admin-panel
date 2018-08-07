@@ -1,7 +1,15 @@
 import React from 'react';
+import { Card, Icon } from 'antd';
 
 export default (props) => {
   return (
-    <div></div>
+    <Card>
+      <div>
+        <Icon type="user" />
+      </div>
+      <div>
+        Number Card
+      </div>
+    </Card>
   );
 }

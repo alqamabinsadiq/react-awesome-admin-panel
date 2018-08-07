@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NumberCard from '../../components/NumberCard/NumberCard';
 
 class Dashboard extends Component {
   render() {
