@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Layout, Menu, Icon } from 'antd';
-import Notifications from '../Notification/Notification';
 import Logo from '../../styles/images/logo.png';
 import SiderMenu from '../../components/Menu/Menu';
 const { Header, Sider, Content, Footer } = Layout;
@@ -68,7 +67,6 @@ class App extends Component {
     const { children } = this.props;
     return (
       <div className="reactRoot">
-        <Notifications />
         <Layout style={{ height: '100vh' }}>
           <App.Sider collapsed={this.state.collapsed} />
           <Layout>
