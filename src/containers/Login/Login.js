@@ -24,31 +24,26 @@ class LoginForm extends Component {
     });
   }
 
+  static FormInput = ({ getFieldDecorator, placeholder, name, message, type }) => {
+    return <FormItem hasFeedback>
+      {getFieldDecorator(name, {
+        rules: [
+          {
+            required: true,
+            message: message
+          }
+        ]
+      })(<Input size='large' placeholder={placeholder} type={type} />)}
+    </FormItem>
+  }
+
   // Form
-  static Form = ({ form, loading }) => {
+  static Form = ({ form, loading, onSubmit }) => {
     const { getFieldDecorator } = form;
 
-    return <Form onSubmit={this.handleSubmit}>
-      <FormItem hasFeedback>
-        {getFieldDecorator('username', {
-          rules: [
-            {
-              required: true,
-              message: 'Please Enter Your Email'
-            }
-          ]
-        })(<Input size='large' placeholder='Email' />)}
-      </FormItem>
-      <FormItem hasFeedback>
-        {getFieldDecorator('password', {
-          rules: [
-            {
-              required: true,
-              message: 'Please Enter Your Password'
-            }
-          ]
-        })(<Input size='large' type='password' placeholder='Password' />)}
-      </FormItem>
+    return <Form onSubmit={onSubmit}>
+      <LoginForm.FormInput getFieldDecorator={getFieldDecorator} message="Please Enter Your Email" name="username" placeholder="Email" type="text" />
+      <LoginForm.FormInput getFieldDecorator={getFieldDecorator} message="Please Enter Your Password" name="password" placeholder="Password" type="password" />
       <Row>
         <Button type="primary" htmlType="submit" size="large" loading={loading}>
           Login
@@ -70,7 +65,11 @@ class LoginForm extends Component {
       <div className="loginForm">
         <Notifications />
         <LoginForm.Logo />
-        <LoginForm.Form form={this.props.form} loading={this.state.loginButtonLoading} />
+        <LoginForm.Form
+          form={this.props.form}
+          loading={this.state.loginButtonLoading}
+          onSubmit={this.handleSubmit}
+        />
       </div>
     );
   }
