@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Button, Row, Form, Input } from 'antd';
 // import { login } from '../../actions/user';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import Notifications from '../Notification/Notification';
+// import PropTypes from 'prop-types';
+// import Notifications from '../Notification/Notification';
 // Logo
 import Logo from '../../styles/images/logo.png';
 const FormItem = Form.Item;
@@ -63,7 +63,7 @@ class LoginForm extends Component {
   render() {
     return (
       <div className="loginForm">
-        <Notifications />
+        {/* <Notifications /> */}
         <LoginForm.Logo />
         <LoginForm.Form
           form={this.props.form}
