@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 export const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props => {
-    if (localStorage.getItem('token')) {
+    if (localStorage.getItem('user')) {
       // setExistingUserOnLogRocket();
       return <Component {...props} />;
     }
