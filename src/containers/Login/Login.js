@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { Button, Row, Form, Input } from 'antd';
-// import { login } from '../../actions/user';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
-// import Notifications from '../Notification/Notification';
 // Logo
 import Logo from '../../styles/images/logo.png';
+import { userLogin } from '../../actions/user';
 const FormItem = Form.Item;
 
 class LoginForm extends Component {
   state = {
-    loginButtonLoading: false
+    isLoading: false
   }
 
   handleSubmit = (e) => {
@@ -18,8 +17,20 @@ class LoginForm extends Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         this.setState({
-          loginButtonLoading: true
+          isLoading: true
         });
+        return new Promise((resolve, reject) => {
+          this.props.userLogin(values, resolve, reject);
+        }).then(() => {
+          this.setState({
+            isLoading: false
+          });
+        }).catch(() => {
+          this.props.form.resetFields();
+          this.setState({
+            isLoading: false
+          });
+        })
       }
     });
   }
@@ -42,7 +53,7 @@ class LoginForm extends Component {
     const { getFieldDecorator } = form;
 
     return <Form onSubmit={onSubmit}>
-      <LoginForm.FormInput getFieldDecorator={getFieldDecorator} message="Please Enter Your Email" name="username" placeholder="Email" type="text" />
+      <LoginForm.FormInput getFieldDecorator={getFieldDecorator} message="Please Enter Your Email" name="email" placeholder="Email" type="text" />
       <LoginForm.FormInput getFieldDecorator={getFieldDecorator} message="Please Enter Your Password" name="password" placeholder="Password" type="password" />
       <Row>
         <Button type="primary" htmlType="submit" size="large" loading={loading}>
@@ -63,11 +74,10 @@ class LoginForm extends Component {
   render() {
     return (
       <div className="loginForm">
-        {/* <Notifications /> */}
         <LoginForm.Logo />
         <LoginForm.Form
           form={this.props.form}
-          loading={this.state.loginButtonLoading}
+          loading={this.state.isLoading}
           onSubmit={this.handleSubmit}
         />
       </div>
@@ -75,4 +85,4 @@ class LoginForm extends Component {
   }
 }
 
-export default connect(null)(Form.create()(LoginForm));
+export default connect(null, { userLogin })(Form.create()(LoginForm));
