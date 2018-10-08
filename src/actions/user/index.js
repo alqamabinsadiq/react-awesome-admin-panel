@@ -1,27 +1,31 @@
-// import api from '../../shared/api';
+import { login } from '../../mockApi/user/controller';
 import { replace } from 'react-router-redux';
+import { openNotificationWithIcon } from '../../utils/notification';
 
-export const goHome = () => {
-  return (dispatch) => {
-    if (localStorage.getItem('token')) {
-      dispatch(replace('/dashboard'));
-    } else {
-      dispatch(replace('/'));
-    }
-  };
+// action types.
+export const actions = {
+  SET_USER_INFO: "SET_USER_INFO"
 };
 
-export const login = (data, resolve) => {
+// set's the user to redux.
+export const setUser = (data) => ({
+  type: actions.SET_USER_INFO,
+  data
+})
+
+
+// performs user authentication.
+export const userLogin = (data, resolve, reject) => {
   return (dispatch) => {
-    // Here you can perform api call and then call the actions accordingly.
-    /* 
-    axios.post(`${api.url}user/login`, data)
-      .then(({ data, status }) => {
-        dispatch(setUserData);
-      })
-      .catch((error) => {
+    return login(data.email, data.password)
+      .then((data) => {
+        dispatch(setUser);
+        localStorage.setItem('user', data);
+        dispatch(replace('/dashboard'));
+        resolve();
+      }).catch((error) => {
+        openNotificationWithIcon('error', 'Error!', error);
         reject();
-      }); 
-     */
+      });
   };
 };
