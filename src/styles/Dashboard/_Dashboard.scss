@@ -1,0 +1,14 @@
+.dashboardCard{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 65px;
+  align-items: center;
+  .icon{
+    font-size: 3rem;
+  }
+  .count{
+    font-size: 2rem;
+    color: #aba6a6;
+  }
+}
