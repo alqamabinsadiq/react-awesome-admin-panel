@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router';
-import routes from '../routes';
+import routes from './routes';
 import App from './App/App';
-import { route } from '../actions/user';
+// import { route } from '../actions/user';
 import NotFound from '../components/NotFoundPage/NotFoundPage';
 
 // renders the routes from the configuration object
@@ -41,4 +41,4 @@ class Root extends Component {
 //   history: PropTypes.object.isRequired,
 //   route: PropTypes.func
 // };
-export default connect(null, { route })(Root);
+export default connect(null)(Root);
