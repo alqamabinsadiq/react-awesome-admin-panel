@@ -6,12 +6,14 @@ import { ConnectedRouter } from 'react-router-redux';
 import './styles/styles.scss';
 import 'antd/dist/antd.css';
 import { Switch } from 'react-router';
-import App from './containers/App/App';
+// import App from './containers/App/App';
 import { PublicRoute } from './components/PublicRoute';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore, { history } from './store/configureStore';
 import Login from './containers/Login/Login';
 import { PrivateRoute } from './components/PrivateRoute';
+import NotFoundPage from './components/NotFoundPage/NotFoundPage';
+import Root from './containers/Root';
 
 const store = configureStore();
 registerServiceWorker();
@@ -21,7 +23,8 @@ render(
       <ConnectedRouter history={history}>
         <Switch>
           <PublicRoute path="/" component={Login} exact strict />
-          <PrivateRoute path="/dashboard" component={App} />
+          <PrivateRoute path="/dashboard" component={Root} exact />
+          <PrivateRoute path="*" component={NotFoundPage} />
         </Switch>
       </ConnectedRouter>
     </Provider>
