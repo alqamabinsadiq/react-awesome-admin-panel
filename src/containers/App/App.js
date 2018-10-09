@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import { Layout, Menu, Icon } from 'antd';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Logo from '../../styles/images/logo.png';
+import { logout } from '../../actions/user';
 import SiderMenu from '../../components/Menu/Menu';
 const { Header, Sider, Content, Footer } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
 class App extends Component {
+  static propTypes = {
+    logout: PropTypes.func,
+    children: PropTypes.any
+  }
+
   state = {
     collapsed: false,
   };
@@ -19,7 +27,7 @@ class App extends Component {
   }
 
   // Main Layout Header
-  static Header = ({ collapsed, toggle }) => {
+  static Header = ({ collapsed, toggle, logout }) => {
     return <Header style={{ background: '#fff', padding: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
       <Icon
         className="trigger"
@@ -31,7 +39,9 @@ class App extends Component {
       >
         <SubMenu title={<span><Icon type="user" />Admin</span>}>
           <MenuItemGroup title="Settings">
-            <Menu.Item key="setting:1">Logout</Menu.Item>
+            <Menu.Item key="setting:1" >
+              <a href="" onClick={logout}>Logout</a>
+            </Menu.Item>
             <Menu.Item key="setting:2">Option 2</Menu.Item>
           </MenuItemGroup>
         </SubMenu>
@@ -70,7 +80,7 @@ class App extends Component {
         <Layout style={{ height: '100vh' }}>
           <App.Sider collapsed={this.state.collapsed} />
           <Layout>
-            <App.Header collapsed={this.state.collapsed} toggle={this.toggle} />
+            <App.Header collapsed={this.state.collapsed} toggle={this.toggle} logout={this.props.logout} />
             <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
               {children}
             </Content>
@@ -81,4 +91,4 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default connect(null, { logout })(App);
