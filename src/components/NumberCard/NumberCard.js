@@ -1,15 +1,27 @@
 import React from 'react';
 import { Card, Icon } from 'antd';
+import CountUp from 'react-countup';
+import PropTypes from 'prop-types';
 
-export default (props) => {
+const NumberCard = ({ color, number, type }) => {
   return (
-    <Card>
-      <div>
-        <Icon type="user" />
-      </div>
-      <div>
-        Number Card
+    <Card hoverable>
+      <div className="dashboardCard">
+        <div className="icon">
+          <Icon type={type} style={{ color: color }} />
+        </div>
+        <div className="count">
+          <CountUp end={number} />
+        </div>
       </div>
     </Card>
   );
 }
+
+NumberCard.propTypes = {
+  color: PropTypes.string,
+  type: PropTypes.string,
+  number: PropTypes.string,
+}
+
+export default NumberCard;
