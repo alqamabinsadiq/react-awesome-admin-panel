@@ -39,10 +39,13 @@ class App extends Component {
       >
         <SubMenu title={<span><Icon type="user" />Admin</span>}>
           <MenuItemGroup title="Settings">
+            <Menu.Item key="setting:2">Profile</Menu.Item>
             <Menu.Item key="setting:1" >
-              <a href="" onClick={logout}>Logout</a>
+              <a href="" onClick={logout}>
+                <Icon type="logout" theme="outlined" />
+                Logout
+                </a>
             </Menu.Item>
-            <Menu.Item key="setting:2">Option 2</Menu.Item>
           </MenuItemGroup>
         </SubMenu>
       </Menu>
