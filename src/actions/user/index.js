@@ -20,7 +20,7 @@ export const userLogin = (data, resolve, reject) => {
     return login(data.email, data.password)
       .then((data) => {
         dispatch(setUser);
-        localStorage.setItem('user', data);
+        localStorage.setItem('user', JSON.stringify(data));
         dispatch(replace('/dashboard'));
         resolve();
       }).catch((error) => {
@@ -29,3 +29,13 @@ export const userLogin = (data, resolve, reject) => {
       });
   };
 };
+
+export const logout = () => { 
+  return (dispatch)=>{
+    localStorage.removeItem('user');
+    dispatch(setUser(null));
+    setTimeout(() => {
+      window.location = '/';
+    }, 500);
+  }
+}
