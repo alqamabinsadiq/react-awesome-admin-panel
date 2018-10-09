@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import { Button, Row, Form, Input } from 'antd';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
-// Logo
+import PropTypes from 'prop-types';
 import Logo from '../../styles/images/logo.png';
 import { userLogin } from '../../actions/user';
 const FormItem = Form.Item;
 
 class LoginForm extends Component {
+  // PropTypes
+  static propTypes = {
+    userLogin: PropTypes.func,
+    form: PropTypes.object
+  }
+
+  // Initial State
   state = {
     isLoading: false
   }
