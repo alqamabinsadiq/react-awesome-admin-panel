@@ -22,6 +22,6 @@ export default () => {
     }]
   };
   return (
-    <Doughnut data={data} height={200} />
+    <Doughnut data={data} height={250} />
   );
 }

@@ -35,10 +35,15 @@
 .ant-layout-footer {
   padding: 15px 50px;
   color: rgb(128, 128, 128);
+  position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 
 .ant-layout-content {
   margin-bottom: 1px !important;
+  height: 100%;
+  overflow: scroll;
 }
 
 .ant-menu-item, .ant-menu-submenu-title{

@@ -29,6 +29,6 @@ export default () => {
     ]
   };
   return (
-    <Polar data={data} height={200} />
+    <Polar data={data} height={250} />
   );
 }
