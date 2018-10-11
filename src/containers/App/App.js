@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Logo from '../../styles/images/logo.png';
 import { logout } from '../../actions/user';
 import SiderMenu from '../../components/Menu/Menu';
+import { push } from 'react-router-redux';
 const { Header, Sider, Content, Footer } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -12,6 +13,7 @@ const MenuItemGroup = Menu.ItemGroup;
 class App extends Component {
   static propTypes = {
     logout: PropTypes.func,
+    push: PropTypes.func,
     children: PropTypes.any
   }
 
@@ -62,7 +64,7 @@ class App extends Component {
   }
 
   // Sider 
-  static Sider = ({ collapsed }) => {
+  static Sider = ({ collapsed, onMenuSelect }) => {
     return <Sider
       trigger={null}
       collapsible
@@ -72,8 +74,13 @@ class App extends Component {
         <img src={Logo} alt="logo" />
         <span>Admin Panel</span>
       </div>
-      <SiderMenu />
+      <SiderMenu onMenuSelect={onMenuSelect} />
     </Sider>
+  }
+
+  onMenuSelect = (key) => {
+    console.log(key);
+    this.props.push(key);
   }
 
   render() {
@@ -81,7 +88,7 @@ class App extends Component {
     return (
       <div className="reactRoot">
         <Layout style={{ height: '100vh' }}>
-          <App.Sider collapsed={this.state.collapsed} />
+          <App.Sider collapsed={this.state.collapsed} onMenuSelect={this.onMenuSelect} />
           <Layout>
             <App.Header collapsed={this.state.collapsed} toggle={this.toggle} logout={this.props.logout} />
             <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
@@ -94,4 +101,4 @@ class App extends Component {
     );
   }
 }
-export default connect(null, { logout })(App);
+export default connect(null, { logout, push })(App);
