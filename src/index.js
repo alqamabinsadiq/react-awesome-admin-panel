@@ -23,7 +23,7 @@ render(
       <ConnectedRouter history={history}>
         <Switch>
           <PublicRoute path="/" component={Login} exact strict />
-          <PrivateRoute path="/dashboard" component={Root} exact />
+          <PrivateRoute path="/dashboard" component={Root} />
           <PrivateRoute path="*" component={NotFoundPage} />
         </Switch>
       </ConnectedRouter>
