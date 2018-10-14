@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Table } from 'antd';
+import { Table, Row, Col } from 'antd';
+import { Button, SearchInput } from '../../components/Shared'
 
 class TableContainer extends Component {
   render() {
@@ -48,6 +49,7 @@ class TableContainer extends Component {
       sorter: (a, b) => a.address.length - b.address.length,
     }];
 
+    // Data
     const data = [{
       key: '1',
       name: 'John Brown',
@@ -72,8 +74,24 @@ class TableContainer extends Component {
 
     return (
       <div>
+        <Row style={{ paddingTop: 15, paddingBottom: 15 }}>
+          <Col span={6} >
+            <SearchInput
+              placeholder="input search text"
+              onSearch={value => console.log(value)}
+            />
+          </Col>
+          <Col span={4} offset={14} style={{ justifyContent: 'flex-end', flexDirection: 'row', display: 'flex' }}>
+            <Button
+              type="primary"
+              iconType="plus"
+              hasIcon={true}
+              label="Add New Record"
+            />
+          </Col>
+        </Row>
         <Table columns={columns} dataSource={data} />
-      </div>
+      </div >
     );
   }
 }
