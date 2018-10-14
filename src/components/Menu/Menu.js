@@ -17,8 +17,8 @@ const SideMenu = ({ onMenuSelect }) => {
         <span>Dashboard</span>
       </Menu.Item>
       <Menu.Item key="/dashboard/table">
-        <Icon type="video-camera" />
-        <span>nav 2</span>
+        <Icon type="table" />
+        <span>Table</span>
       </Menu.Item>
       <Menu.Item key="3">
         <Icon type="upload" />
