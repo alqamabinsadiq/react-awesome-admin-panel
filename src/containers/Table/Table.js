@@ -1,9 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Table, Row, Col } from 'antd';
+import { Table, Row, Col, Icon, Popconfirm } from 'antd';
 import { Button, SearchInput } from '../../components/Shared'
 
 class TableContainer extends Component {
+  state = {
+    dataSource: [{
+      key: '1',
+      name: 'John Brown',
+      age: 32,
+      address: 'New York No. 1 Lake Park',
+    }, {
+      key: '2',
+      name: 'Jim Green',
+      age: 42,
+      address: 'London No. 1 Lake Park',
+    }, {
+      key: '3',
+      name: 'Joe Black',
+      age: 32,
+      address: 'Sidney No. 1 Lake Park',
+    }, {
+      key: '4',
+      name: 'Jim Red',
+      age: 32,
+      address: 'London No. 2 Lake Park',
+    }]
+  }
   render() {
     const columns = [{
       title: 'Name',
@@ -47,31 +70,25 @@ class TableContainer extends Component {
       filterMultiple: false,
       onFilter: (value, record) => record.address.indexOf(value) === 0,
       sorter: (a, b) => a.address.length - b.address.length,
-    }];
+    },
+    {
+      title: 'Operation',
+      key: 'operation',
+      width: 100,
+      // fixed: 'right',
+      render: (text, record) => {
+        return (
+          <Popconfirm title="Are you sure you want to delete?" onConfirm={() => console.log('confirmed')}>
+            <div style={{ width: '100%', textAlign: 'center' }}>
+              <Icon style={{ alignSelf: 'center', cursor: 'pointer', fontSize: '1.7em', color: 'rgb(255,143,143)', padding: 4, background: '#efeded', borderRadius: 25, boxShadow: '1px 1px 1px rgba(0,0,0,0.3)' }} type="user-delete" />
+            </div>
+          </Popconfirm>
+        );
+      }
+    }
+    ];
 
-    // Data
-    const data = [{
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-    }, {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-    }, {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-    }, {
-      key: '4',
-      name: 'Jim Red',
-      age: 32,
-      address: 'London No. 2 Lake Park',
-    }];
-
+    // TODO: refactor code and make create a static HEader.
     return (
       <div>
         <Row style={{ paddingTop: 15, paddingBottom: 15 }}>
@@ -90,7 +107,7 @@ class TableContainer extends Component {
             />
           </Col>
         </Row>
-        <Table columns={columns} dataSource={data} />
+        <Table columns={columns} dataSource={this.state.dataSource} bordered />
       </div >
     );
   }
