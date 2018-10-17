@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import routes from './routes';
-import App from './App/App';
+import App from './App/App.index';
 // import { route } from '../actions/user';
 import NotFound from '../components/NotFoundPage/NotFoundPage';
 

@@ -6,6 +6,7 @@ import BubbleChart from '../../components/Charts/Bubble';
 import PolarChart from '../../components/Charts/Polar';
 import Doughnut from '../../components/Charts/Doughnut';
 import Bar from '../../components/Charts/Bar';
+import './Dashboard.style.scss';
 
 class Dashboard extends Component {
   cards = [

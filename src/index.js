@@ -10,7 +10,7 @@ import { Switch } from 'react-router';
 import { PublicRoute } from './components/PublicRoute';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore, { history } from './store/configureStore';
-import Login from './containers/Login/Login';
+import Login from './containers/Login/Login.index';
 import { PrivateRoute } from './components/PrivateRoute';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 import Root from './containers/Root';

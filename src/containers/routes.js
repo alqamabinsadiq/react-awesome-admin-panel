@@ -1,6 +1,6 @@
 // import App from './App';
-import Dashboard from './Dashboard/Dashboard';
-import Table from './Table/Table';
+import Dashboard from './Dashboard/Dashboard.index';
+import Table from './Table/Table.index';
 // import UnitExplorer from '../Explorer/UnitExplorer';
 
 // router configuration.
