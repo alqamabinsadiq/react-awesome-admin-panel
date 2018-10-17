@@ -20,9 +20,9 @@ const SideMenu = ({ onMenuSelect }) => {
         <Icon type="table" />
         <span>Table</span>
       </Menu.Item>
-      <Menu.Item key="3">
-        <Icon type="upload" />
-        <span>nav 3</span>
+      <Menu.Item key="/dashboard/charts">
+        <Icon type="line-chart" />
+        <span>Charts</span>
       </Menu.Item>
     </Menu>
   );
