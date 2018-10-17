@@ -5,7 +5,7 @@
     "name": "Alqama Bin Sadiq",
     "email": "alqamabinsadiq@gmail.com"
   },
-  "homepage": "https://alqamabinsadiq.github.io/react-awesome-admin-panel",
+  "homepage": "http://alqamabinsadiq.github.io/react-awesome-admin-panel",
   "dependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
