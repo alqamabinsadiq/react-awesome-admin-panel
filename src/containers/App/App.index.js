@@ -6,6 +6,7 @@ import Logo from '../../styles/images/logo.png';
 import { logout } from '../../actions/user';
 import SiderMenu from '../../components/Menu/Menu';
 import { push } from 'react-router-redux';
+import './App.style.scss';
 const { Header, Sider, Content, Footer } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
