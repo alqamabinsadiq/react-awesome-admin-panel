@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Row, Col, Card, Progress } from 'antd';
+import { Row, Col, Card, Progress, Badge } from 'antd';
 // import { Chart } from 'chart.js';
 import NumberCard from '../../components/NumberCard/NumberCard';
-import BubbleChart from '../../components/Charts/Bubble';
-import PolarChart from '../../components/Charts/Polar';
-import Doughnut from '../../components/Charts/Doughnut';
+// import BubbleChart from '../../components/Charts/Bubble';
+// import PolarChart from '../../components/Charts/Polar';
+import { Doughnut } from '../../components/Charts/Doughnut';
 import Bar from '../../components/Charts/Bar';
 import './Dashboard.style.scss';
 
@@ -46,34 +46,34 @@ class Dashboard extends Component {
     )
   }
 
-  static ChartSection = () => {
-    return (
-      <Row gutter={27} style={{ marginTop: '3rem', height: 300 }}>
-        <Col span={8}>
-          <div>
-            <BubbleChart />
-          </div>
-        </Col>
-        <Col span={8}>
-          <div>
-            <PolarChart />
-          </div>
-        </Col>
-        <Col span={8}>
-          <div>
-            <Doughnut />
-          </div>
-        </Col>
-      </Row>
-    );
-  }
+  // static ChartSection = () => {
+  //   return (
+  //     <Row gutter={27} style={{ marginTop: '3rem', height: 300 }}>
+  //       <Col span={8}>
+  //         <div>
+  //           <BubbleChart />
+  //         </div>
+  //       </Col>
+  //       <Col span={8}>
+  //         <div>
+  //           <PolarChart />
+  //         </div>
+  //       </Col>
+  //       <Col span={8}>
+  //         <div>
+  //           <Doughnut />
+  //         </div>
+  //       </Col>
+  //     </Row>
+  //   );
+  // }
 
   static BarChart = () => <Row gutter={27} style={{ margin: '3rem', height: 400 }}><Bar /></Row>
 
 
   static ProgressBar = () => {
     return (
-      <Card hoverable>
+      <Card hoverable style={{ maxHeight: 230, minHeight: 230 }}>
         <div className="statsWithProgressBar">
           <div className="header">
             <span className="headerNum">3201</span> <span className="statsHeaderTitle">Progress</span>
@@ -98,12 +98,42 @@ class Dashboard extends Component {
   }
   static Stats = () => {
     return (
-      <Row gutter={27} style={{ marginTop: 10 }}>
+      <Row gutter={27} style={{ marginTop: 30 }}>
         <Col span={8}>
-          <Card hoverable></Card>
+          <Card hoverable style={{ maxHeight: 230, minHeight: 230 }}>
+            <Doughnut height={200} />
+          </Card>
         </Col>
         <Col span={8}>
-          <Card hoverable></Card>
+          <Card hoverable style={{ maxHeight: 230, minHeight: 230 }}>
+            <div className="userStats-circular-progress">
+              <div className="userStats-card-header">
+                <div className="card-header-number-count">
+                  200
+                </div>
+                <div className="card-header-label">
+                  User daily use
+                </div>
+              </div>
+              <div className="userStats-badge-and-prgress">
+                <Badge
+                  count={35}
+                  overflowCount={30}
+                  style={{
+                    backgroundColor: '#7edacf',
+                    borderRadius: 4,
+                    // margin: 10,
+                    marginBottom: '2rem',
+                    width: 60,
+                    height: 30,
+                    fontSize: 19,
+                    textAlign: 'center',
+                    lineHeight: '30px'
+                  }} />
+                <Progress style={{ stroke: '#7edacf' }} type="circle" percent={75} />
+              </div>
+            </div>
+          </Card>
         </Col>
         <Col span={8}>
           <Dashboard.ProgressBar />
@@ -118,7 +148,7 @@ class Dashboard extends Component {
       <div>
         <Dashboard.NumberCards cards={this.cards} />
         <Dashboard.Stats />
-        <Dashboard.ChartSection />
+        {/* <Dashboard.ChartSection /> */}
         <Dashboard.BarChart />
       </div>
     );
