@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import BubbleChart from '../../components/Charts/Bubble';
 import PolarChart from '../../components/Charts/Polar';
-import Doughnut from '../../components/Charts/Doughnut';
+import { Doughnut } from '../../components/Charts/Doughnut';
 import Bar from '../../components/Charts/Bar';
 // import './Dashboard.style.scss';
 
@@ -23,7 +23,7 @@ class Charts extends Component {
         </Col>
         <Col span={8}>
           <div>
-            <Doughnut />
+            <Doughnut height={250} />
           </div>
         </Col>
       </Row>
