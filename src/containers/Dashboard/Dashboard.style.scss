@@ -30,3 +30,27 @@
     }
   }
 }
+.ant-progress-circle-path{
+  stroke: #7edacf !important;
+}
+.userStats-circular-progress{
+  font-family: $sourcesans;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .userStats-card-header{
+    .card-header-number-count{
+      font-size: 2rem;
+    }
+    .card-header-label{
+      font-size: 0.8rem;
+      color: #828282;
+      text-transform: uppercase;
+    }
+  }
+  .userStats-badge-and-prgress{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
