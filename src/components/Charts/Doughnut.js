@@ -1,14 +1,15 @@
 import React from 'react';
-import { Doughnut } from 'react-chartjs-2';
-export default () => {
+import PropTypes from 'prop-types';
+import { Doughnut as DoughnutChart } from 'react-chartjs-2';
+const Doughnut = ({ height }) => {
   const data = {
     labels: [
-      'Red',
-      'Green',
-      'Yellow'
+      'Pending',
+      'Active',
+      'Offline'
     ],
     datasets: [{
-      data: [300, 50, 100],
+      data: [100, 120, 50],
       backgroundColor: [
         '#FF6384',
         '#36A2EB',
@@ -22,6 +23,14 @@ export default () => {
     }]
   };
   return (
-    <Doughnut data={data} height={250} />
+    <DoughnutChart data={data} height={height} />
   );
 }
+Doughnut.propTypes = {
+  height: PropTypes.number
+}
+
+Doughnut.defaulProps = {
+  height: 250
+}
+export { Doughnut };
