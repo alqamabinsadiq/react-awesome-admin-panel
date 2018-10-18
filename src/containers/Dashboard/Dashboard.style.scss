@@ -1,3 +1,6 @@
+
+@import "../../styles/fonts";
+
 .dashboardCard{
   display: flex;
   flex-direction: row;
@@ -10,5 +13,20 @@
   .count{
     font-size: 2rem;
     color: #aba6a6;
+  }
+}
+
+.statsWithProgressBar{
+  .header{
+    font-family: $sourcesans;
+    .headerNum{
+      font-size: 1.3rem;
+    }
+    .statsHeaderTitle{
+      text-transform: uppercase;
+      letter-spacing: 0;
+      margin-left: 0.5rem;
+      color: #828282;
+    }
   }
 }
