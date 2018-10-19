@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Row, Col, Card, Progress, Badge } from 'antd';
 import NumberCard from '../../components/NumberCard/NumberCard';
-import { Doughnut } from '../../components/Charts/Doughnut';
+// import { Doughnut } from '../../components/Charts/Doughnut';
 import Bar from '../../components/Charts/Bar';
+import CountUp from 'react-countup';
 import './Dashboard.style.scss';
 
 class Dashboard extends Component {
@@ -52,7 +53,7 @@ class Dashboard extends Component {
       <Card hoverable style={{ maxHeight: 230, minHeight: 230 }}>
         <div className="statsWithProgressBar">
           <div className="header">
-            <span className="headerNum">3201</span> <span className="statsHeaderTitle">Progress</span>
+            <span className="headerNum"><CountUp end={3201} /></span> <span className="statsHeaderTitle">Progress</span>
           </div>
           <div style={{ marginTop: 15 }}>
             <div>
@@ -80,8 +81,8 @@ class Dashboard extends Component {
         <div className="userStats-circular-progress">
           <div className="userStats-card-header">
             <div className="card-header-number-count">
-              200
-          </div>
+              <CountUp end={200} />
+            </div>
             <div className="card-header-label">
               User daily use
           </div>
@@ -113,15 +114,17 @@ class Dashboard extends Component {
     return (
       <Row gutter={27} style={{ marginTop: 30 }}>
         <Col span={8}>
-          <Card hoverable style={{ maxHeight: 230, minHeight: 230 }}>
-            <Doughnut height={200} />
-          </Card>
+          <Dashboard.ProgressBar />
         </Col>
         <Col span={8}>
           <Dashboard.CircularProgress />
         </Col>
         <Col span={8}>
-          <Dashboard.ProgressBar />
+          <Card hoverable style={{ maxHeight: 230, minHeight: 230 }}>
+            <div style={{ height: 200 }}>
+              <Bar />
+            </div>
+          </Card>
         </Col>
       </Row >
     );
@@ -132,7 +135,7 @@ class Dashboard extends Component {
       <div>
         <Dashboard.NumberCards cards={this.cards} />
         <Dashboard.Stats />
-        <Dashboard.BarChart />
+        {/* <Dashboard.BarChart /> */}
       </div>
     );
   }
