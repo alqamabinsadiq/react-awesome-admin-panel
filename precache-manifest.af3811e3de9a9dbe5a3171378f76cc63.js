@@ -8,23 +8,23 @@ self.__precacheManifest = [
     "url": "/react-awesome-admin-panel/static/js/runtime~main.21b3f270.js"
   },
   {
-    "revision": "14a8c786156c8595ad76",
-    "url": "/react-awesome-admin-panel/static/js/main.14a8c786.chunk.js"
+    "revision": "a42f2585fa7c7ed868d0",
+    "url": "/react-awesome-admin-panel/static/js/main.a42f2585.chunk.js"
   },
   {
-    "revision": "14670744cde123a969d1",
-    "url": "/react-awesome-admin-panel/static/js/1.14670744.chunk.js"
+    "revision": "96177e0121d19c24b49d",
+    "url": "/react-awesome-admin-panel/static/js/1.96177e01.chunk.js"
   },
   {
-    "revision": "14a8c786156c8595ad76",
-    "url": "/react-awesome-admin-panel/static/css/main.2ddea7b5.chunk.css"
+    "revision": "a42f2585fa7c7ed868d0",
+    "url": "/react-awesome-admin-panel/static/css/main.a314b1c7.chunk.css"
   },
   {
-    "revision": "14670744cde123a969d1",
+    "revision": "96177e0121d19c24b49d",
     "url": "/react-awesome-admin-panel/static/css/1.e376a798.chunk.css"
   },
   {
-    "revision": "c065eccb075a2a4a0a15674e6618f9b5",
+    "revision": "d9b933439e069e30766497aa87e5342b",
     "url": "/react-awesome-admin-panel/index.html"
   }
 ];
