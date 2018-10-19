@@ -8,19 +8,19 @@ import './Dashboard.style.scss';
 class Dashboard extends Component {
   cards = [
     {
-      title: '',
+      title: 'Active Users',
       color: '#8fd684f5',
       number: 1033,
       type: 'user-add'
     },
     {
-      title: '',
+      title: 'Pending Users',
       color: '#ffb2b2',
       number: 3233,
       type: 'user-delete'
     },
     {
-      title: '',
+      title: 'New Groups',
       color: '#dabb5b',
       number: 999,
       type: 'usergroup-add'
@@ -35,7 +35,7 @@ class Dashboard extends Component {
           cards.map((item, index) => {
             return (
               <Col span={8} key={index}>
-                <NumberCard color={item.color} number={item.number} type={item.type} />
+                <NumberCard color={item.color} number={item.number} type={item.type} title={item.title} />
               </Col>
             );
           })
