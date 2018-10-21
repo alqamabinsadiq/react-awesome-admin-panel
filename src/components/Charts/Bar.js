@@ -3,10 +3,10 @@ import { Bar } from 'react-chartjs-2';
 
 export default () => {
   const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July'],
     datasets: [
       {
-        label: 'My First dataset',
+        label: 'Monthly Progress',
         backgroundColor: 'rgba(255,99,132,0.2)',
         borderColor: 'rgba(255,99,132,1)',
         borderWidth: 1,
