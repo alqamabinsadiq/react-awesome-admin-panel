@@ -144,6 +144,8 @@ class Dashboard extends Component {
     );
   }
 
+
+  // TODO: make Timeline dynamic and pass the dataSource.
   static TimeLineComponent = ({ title, headerBackground }) => {
     return (
       <Card hoverable style={{ maxHeight: 300, display: 'flex', flexDirection: 'column', padding: 0 }} bodyStyle={{ padding: 0 }}>
