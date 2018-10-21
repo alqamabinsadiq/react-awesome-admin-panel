@@ -177,7 +177,7 @@ class Dashboard extends Component {
 
   static StatsWithTimeline = () => {
     return (
-      <Row gutter={24} style={{ margin: 1, marginTop: 30, height: 500 }}>
+      <Row gutter={24} style={{ margin: 1, marginTop: 30, paddingBottom: '3rem' }}>
         <Dashboard.CircularProgressCard title="Total Projects" count={3200} progress={80} strokeColor="6bdcff" headerBackground="#6bdcff" />
         <Dashboard.CircularProgressCard title="Total Projects" count={900} progress={45} strokeColor="7edacf" headerBackground="#7edacf" />
         <Dashboard.CircularProgressCard title="Total Projects" count={1700} progress={60} strokeColor="ffc920b3" headerBackground="#ffc920b3" />
