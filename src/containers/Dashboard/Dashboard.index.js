@@ -45,8 +45,6 @@ class Dashboard extends Component {
     )
   }
 
-  static BarChart = () => <Row gutter={27} style={{ margin: '3rem', height: 400 }}><Bar /></Row>
-
   // Progress card can be used to show progress by months.
   static ProgressBar = () => {
     return (
@@ -130,12 +128,41 @@ class Dashboard extends Component {
     );
   }
 
+  static CircularProgressCard = ({ title, count, strokeColor, progress, headerBackground, bodyColor }) => {
+    return (
+      <Col span={5} style={{ padding: 0 }}>
+        <Card hoverable style={{ display: 'flex', flexDirection: 'column', padding: 0 }} bodyStyle={{ padding: 0 }} >
+          <div style={{ display: 'flex', width: '100%', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'white', height: 60, backgroundColor: headerBackground }}>
+            <div>{title}</div>
+            <div>{count}</div>
+          </div>
+          <div className={`circular-progress-with-${strokeColor}-header`}>
+            <Progress type="circle" percent={progress} />
+          </div>
+        </Card>
+      </Col>
+    );
+  }
+
+  static StatsWithTimeline = () => {
+    return (
+      <Row gutter={24} style={{ margin: 1, marginTop: 30, height: 500 }}>
+        <Dashboard.CircularProgressCard title="Total Projects" count={3200} progress={80} strokeColor="6bdcff" headerBackground="#6bdcff" />
+        <Dashboard.CircularProgressCard title="Total Projects" count={900} progress={45} strokeColor="7edacf" headerBackground="#7edacf" />
+        <Dashboard.CircularProgressCard title="Total Projects" count={1700} progress={60} strokeColor="ffc920b3" headerBackground="#ffc920b3" />
+        <Col span={9} style={{ padding: 0 }}>
+          <Card style={{ width: '100%' }}>Alqama</Card>
+        </Col>
+      </Row>
+    );
+  }
+
   render() {
     return (
       <div>
         <Dashboard.NumberCards cards={this.cards} />
         <Dashboard.Stats />
-        {/* <Dashboard.BarChart /> */}
+        <Dashboard.StatsWithTimeline />
       </div>
     );
   }
