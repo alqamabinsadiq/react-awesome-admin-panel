@@ -23,7 +23,7 @@ const NumberCard = ({ color, number, type, title }) => {
 NumberCard.propTypes = {
   color: PropTypes.string,
   type: PropTypes.string,
-  number: PropTypes.string,
+  number: PropTypes.number,
   title: PropTypes.string,
 }
 
