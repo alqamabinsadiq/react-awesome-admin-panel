@@ -15,9 +15,7 @@
     }
   }
 }
-.ant-progress-circle-path{
-  stroke: #7edacf !important;
-}
+
 .userStats-circular-progress{
   font-family: $sourcesans;
   display: flex;
@@ -37,5 +35,36 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    .ant-progress-circle-path{
+      stroke: #7edacf !important;
+    }
+  }
+}
+
+%m-circular-progress-with-header{
+  display: flex; 
+  width: 100%; 
+  flex-direction: column; 
+  align-items: center; 
+  margin-top: 4rem; 
+  margin-bottom: 4rem;
+}
+
+.circular-progress-with-6bdcff-header{
+  @extend %m-circular-progress-with-header;
+  .ant-progress-circle-path{
+    stroke: #6bdcff !important;
+  }
+}
+.circular-progress-with-7edacf-header{
+  @extend %m-circular-progress-with-header;
+  .ant-progress-circle-path{
+    stroke: #7edacf !important;
+  }
+}
+.circular-progress-with-ffc920b3-header{
+  @extend %m-circular-progress-with-header;
+  .ant-progress-circle-path{
+    stroke: #ffc920b3 !important;
   }
 }
