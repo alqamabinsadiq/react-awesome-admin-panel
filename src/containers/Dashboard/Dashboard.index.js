@@ -128,7 +128,7 @@ class Dashboard extends Component {
     );
   }
 
-  static CircularProgressCard = ({ title, count, strokeColor, progress, headerBackground, bodyColor }) => {
+  static CircularProgressCardWithHeader = ({ title, count, strokeColor, progress, headerBackground, bodyColor }) => {
     return (
       <Col span={5} style={{ padding: 0 }}>
         <Card hoverable style={{ display: 'flex', flexDirection: 'column', padding: 0, maxHeight: 300 }} bodyStyle={{ padding: 0 }} >
@@ -144,29 +144,51 @@ class Dashboard extends Component {
     );
   }
 
-
+  TimeLineDate = [
+    {
+      color: 'green',
+      description: ['Create a service site Sept 15, 2018']
+    },
+    {
+      color: 'green',
+      description: ['Create a service site Sept 20, 2018']
+    },
+    {
+      color: 'red',
+      description: [
+        'Solve initial network problems 1',
+        'Solve initial network problems 2',
+        'Solve initial network problems Oct 10, 2018'
+      ]
+    },
+    {
+      color: 'blue',
+      description: [
+        'Technical Testing',
+        'UI Testing',
+        'Final Testing Oct 25, 2018'
+      ]
+    },
+  ];
   // TODO: make Timeline dynamic and pass the dataSource.
-  static TimeLineComponent = ({ title, headerBackground }) => {
+  static TimeLineComponent = ({ title, headerBackground, maxHeight, data }) => {
     return (
-      <Card hoverable style={{ maxHeight: 300, display: 'flex', flexDirection: 'column', padding: 0 }} bodyStyle={{ padding: 0 }}>
+      <Card hoverable style={{ maxHeight: maxHeight, display: 'flex', flexDirection: 'column', padding: 0 }} bodyStyle={{ padding: 0 }}>
         <div className="timeline-card-component">
           <div style={{ backgroundColor: headerBackground }} className="header">
             <div>{title}</div>
           </div>
           <div style={{ overflow: 'scroll', maxHeight: 240, padding: 10, paddingLeft: 15 }}>
             <Timeline>
-              <Timeline.Item color="green">Create a services site 2015-09-01</Timeline.Item>
-              <Timeline.Item color="green">Create a services site 2015-09-01</Timeline.Item>
-              <Timeline.Item color="red">
-                <p>Solve initial network problems 1</p>
-                <p>Solve initial network problems 2</p>
-                <p>Solve initial network problems 3 2015-09-01</p>
-              </Timeline.Item>
-              <Timeline.Item>
-                <p>Technical testing 1</p>
-                <p>Technical testing 2</p>
-                <p>Technical testing 3 2015-09-01</p>
-              </Timeline.Item>
+              {
+                data.map((item, index) => {
+                  return <Timeline.Item color={item.color} key={index}>
+                    {item.description.map((desc, index) => {
+                      return <p key={index}>{desc}</p>
+                    })}
+                  </Timeline.Item>
+                })
+              }
             </Timeline>
           </div>
 
@@ -175,14 +197,14 @@ class Dashboard extends Component {
     );
   }
 
-  static StatsWithTimeline = () => {
+  static StatsWithTimeline = ({ timelineData }) => {
     return (
       <Row gutter={24} style={{ margin: 1, marginTop: 30, paddingBottom: '3rem' }}>
-        <Dashboard.CircularProgressCard title="Total Projects" count={3200} progress={80} strokeColor="6bdcff" headerBackground="#6bdcff" />
-        <Dashboard.CircularProgressCard title="Total Projects" count={900} progress={45} strokeColor="7edacf" headerBackground="#7edacf" />
-        <Dashboard.CircularProgressCard title="Total Projects" count={1700} progress={60} strokeColor="ffc920b3" headerBackground="#ffc920b3" />
+        <Dashboard.CircularProgressCardWithHeader title="Total Projects" count={3200} progress={80} strokeColor="6bdcff" headerBackground="#6bdcff" />
+        <Dashboard.CircularProgressCardWithHeader title="Total Projects" count={900} progress={45} strokeColor="7edacf" headerBackground="#7edacf" />
+        <Dashboard.CircularProgressCardWithHeader title="Total Projects" count={1700} progress={60} strokeColor="ffc920b3" headerBackground="#ffc920b3" />
         <Col span={9} style={{ padding: 0 }}>
-          <Dashboard.TimeLineComponent headerBackground="#f1f1f1" title="Project Activity" />
+          <Dashboard.TimeLineComponent headerBackground="#ff6066" title="Project Activity" maxHeight={300} data={timelineData} />
         </Col>
       </Row>
     );
@@ -193,7 +215,7 @@ class Dashboard extends Component {
       <div>
         <Dashboard.NumberCards cards={this.cards} />
         <Dashboard.Stats />
-        <Dashboard.StatsWithTimeline />
+        <Dashboard.StatsWithTimeline timelineData={this.TimeLineDate} />
       </div>
     );
   }
