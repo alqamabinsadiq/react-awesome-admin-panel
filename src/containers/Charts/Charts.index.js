@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col, Card } from 'antd';
 import BubbleChart from '../../components/Charts/Bubble';
 import PolarChart from '../../components/Charts/Polar';
 import { Doughnut } from '../../components/Charts/Doughnut';
 import Bar from '../../components/Charts/Bar';
-// import './Dashboard.style.scss';
+import './Charts.style.scss';
 
 class Charts extends Component {
 
-  static ChartSection = () => {
+  static CircularChartsSection = () => {
     return (
-      <Row gutter={27} style={{ marginTop: '3rem', height: 300 }}>
+      <Row gutter={27} style={{ height: 300 }}>
         <Col span={8}>
-          <div>
+          <Card hoverable className="circular-chart-card" bodyStyle={{ padding: 10 }}>
+            <div className="title">Bubble Chart</div>
             <BubbleChart />
-          </div>
+          </Card>
         </Col>
         <Col span={8}>
-          <div>
+          <Card hoverable className="circular-chart-card" bodyStyle={{ padding: 10 }}>
+            <div className="title">Polar Chart</div>
             <PolarChart />
-          </div>
+          </Card>
         </Col>
         <Col span={8}>
-          <div>
+          <Card hoverable className="circular-chart-card" bodyStyle={{ padding: 10 }}>
+            <div className="title">Doughnut Chart</div>
             <Doughnut height={250} />
-          </div>
+          </Card>
         </Col>
       </Row>
     );
@@ -34,10 +37,9 @@ class Charts extends Component {
 
 
   render() {
-    // const Bubble = new Chart()
     return (
       <div>
-        <Charts.ChartSection />
+        <Charts.CircularChartsSection />
         <Charts.BarChart />
       </div>
     );
