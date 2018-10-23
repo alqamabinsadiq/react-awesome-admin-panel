@@ -11,7 +11,7 @@ class Charts extends Component {
 
   static CircularChartsSection = () => {
     return (
-      <Row gutter={27} style={{ height: 300 }}>
+      <Row gutter={27} >
         <Col span={8}>
           <Card hoverable className="circular-chart-card" bodyStyle={{ padding: 5 }}>
             <div className="title">Polar Chart</div>
@@ -34,7 +34,16 @@ class Charts extends Component {
     );
   }
 
-  static BarChart = () => <Row gutter={27} style={{ margin: '3rem', height: 400 }}><Bar /></Row>
+  static BarChart = () => {
+    return (
+      <Row gutter={27} >
+        <Card span={24} hoverable className="bar-chart-card" bodyStyle={{ padding: 5, height: 400, margin: '1rem' }}>
+          <div className="title">Bar Chart</div>
+          <Bar />
+        </Card>
+      </Row>
+    )
+  }
 
 
   render() {
