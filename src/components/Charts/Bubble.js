@@ -36,6 +36,6 @@ export default () => {
   };
 
   return (
-    <Bubble data={data} height={250} />
+    <Bubble data={data} />
   );
 }
