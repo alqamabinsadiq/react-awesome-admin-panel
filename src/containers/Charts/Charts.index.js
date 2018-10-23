@@ -12,19 +12,19 @@ class Charts extends Component {
     return (
       <Row gutter={27} style={{ height: 300 }}>
         <Col span={8}>
-          <Card hoverable className="circular-chart-card" bodyStyle={{ padding: 10 }}>
+          <Card hoverable className="circular-chart-card" bodyStyle={{ padding: 5 }}>
             <div className="title">Bubble Chart</div>
             <BubbleChart />
           </Card>
         </Col>
         <Col span={8}>
-          <Card hoverable className="circular-chart-card" bodyStyle={{ padding: 10 }}>
+          <Card hoverable className="circular-chart-card" bodyStyle={{ padding: 5 }}>
             <div className="title">Polar Chart</div>
             <PolarChart />
           </Card>
         </Col>
         <Col span={8}>
-          <Card hoverable className="circular-chart-card" bodyStyle={{ padding: 10 }}>
+          <Card hoverable className="circular-chart-card" bodyStyle={{ padding: 5 }}>
             <div className="title">Doughnut Chart</div>
             <Doughnut height={250} />
           </Card>
