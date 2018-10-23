@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Row, Col, Card } from 'antd';
-// import BubbleChart from '../../components/Charts/Bubble';
+import BubbleChart from '../../components/Charts/Bubble';
 import PolarChart from '../../components/Charts/Polar';
 import { Doughnut } from '../../components/Charts/Doughnut';
 import Bar from '../../components/Charts/Bar';
 import './Charts.style.scss';
 import Radar from '../../components/Charts/Radar';
+import Pie from '../../components/Charts/Pie';
 
 class Charts extends Component {
 
@@ -45,11 +46,38 @@ class Charts extends Component {
     )
   }
 
+  // static PieCharts = () => {
+  //   return ();
+  // }
+
+  // static BubbleChart = () => {
+  //   return ();
+  // }
+
+  static PieWithBubbleChart = () => {
+    return (
+      <Row gutter={27} style={{ marginTop: '2rem' }}>
+        <Col span={16}>
+          <Card hoverable bodyStyle={{ padding: 5 }} className="pie-with-bubble-chart-section-card">
+            <div className="title">Bubble Chart</div>
+            <BubbleChart />
+          </Card>
+        </Col>
+        <Col span={8}>
+          <Card hoverable bodyStyle={{ padding: 5 }} className="pie-with-bubble-chart-section-card">
+            <div className="title">Pie Chart</div>
+            <Pie height={300} />
+          </Card>
+        </Col>
+      </Row>
+    );
+  }
 
   render() {
     return (
       <div>
         <Charts.CircularChartsSection />
+        <Charts.PieWithBubbleChart />
         <Charts.BarChart />
       </div>
     );
