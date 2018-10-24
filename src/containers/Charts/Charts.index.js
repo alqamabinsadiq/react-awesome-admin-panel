@@ -46,14 +46,6 @@ class Charts extends Component {
     )
   }
 
-  // static PieCharts = () => {
-  //   return ();
-  // }
-
-  // static BubbleChart = () => {
-  //   return ();
-  // }
-
   static PieWithBubbleChart = () => {
     return (
       <Row gutter={27} style={{ marginTop: '2rem' }}>
