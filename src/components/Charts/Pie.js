@@ -22,5 +22,5 @@ const data = {
   }]
 };
 
-export default () => <Pie data={data} height={300} />;
+export default () => <Pie data={data} height={250} />;
 

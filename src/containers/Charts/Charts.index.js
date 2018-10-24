@@ -15,20 +15,20 @@ class Charts extends Component {
       <Row gutter={27} >
         <Col span={8}>
           <Card hoverable className="circular-chart-card" bodyStyle={{ padding: 5 }}>
-            <div className="title">Polar Chart</div>
-            <PolarChart />
-          </Card>
-        </Col>
-        <Col span={8}>
-          <Card hoverable className="circular-chart-card" bodyStyle={{ padding: 5 }}>
             <div className="title">Doughnut Chart</div>
             <Doughnut height={250} />
           </Card>
         </Col>
         <Col span={8}>
           <Card hoverable className="circular-chart-card" bodyStyle={{ padding: 5 }}>
-            <div className="title">Radar Chart</div>
-            <Radar />
+            <div className="title">Pie Chart</div>
+            <Pie />
+          </Card>
+        </Col>
+        <Col span={8}>
+          <Card hoverable className="circular-chart-card" bodyStyle={{ padding: 5 }}>
+            <div className="title">Polar Chart</div>
+            <PolarChart />
           </Card>
         </Col>
       </Row>
@@ -60,13 +60,15 @@ class Charts extends Component {
         <Col span={16}>
           <Card hoverable bodyStyle={{ padding: 5 }} className="pie-with-bubble-chart-section-card">
             <div className="title">Bubble Chart</div>
-            <BubbleChart />
+            <div style={{ height: 350, maxHeight: 350 }}>
+              <BubbleChart />
+            </div>
           </Card>
         </Col>
         <Col span={8}>
           <Card hoverable bodyStyle={{ padding: 5 }} className="pie-with-bubble-chart-section-card">
-            <div className="title">Pie Chart</div>
-            <Pie height={300} />
+            <div className="title">Radar Chart</div>
+            <Radar />
           </Card>
         </Col>
       </Row>
