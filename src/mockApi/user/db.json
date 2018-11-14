@@ -52,5 +52,23 @@
     "address": "New York No. 1 Lake Park",
     "password": "12345",
     "email": "john@fake.com"
+  },
+  {
+    "id": 6,
+    "firstName": "Joe",
+    "lastName": "Brown",
+    "age": 22,
+    "address": "New York No. 3 Lake Park",
+    "password": "12345",
+    "email": "joe@fake.com"
+  },
+  {
+    "id": 7,
+    "firstName": "Eric",
+    "lastName": "Brown",
+    "age": 40,
+    "address": "New York No. 2 Lake Park",
+    "password": "12345",
+    "email": "eric@fake.com"
   }
 ]
