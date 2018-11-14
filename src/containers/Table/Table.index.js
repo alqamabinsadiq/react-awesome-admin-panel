@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Table, Row, Col, Icon, Popconfirm } from 'antd';
 import PropTypes from 'prop-types';
+import memoize from "memoize-one";
 import { Button, SearchInput } from '../../components/Shared'
 import { getAllUsers, setUserLoader } from '../../actions/user';
 
@@ -72,6 +73,20 @@ class TableContainer extends Component {
 
   onRecordDelete = () => { }
 
+  filterIt = memoize((arr, searchKey) => {
+    const list = arr.filter(obj => Object.keys(obj).some((key) =>
+      (
+        (key + "" !== 'key') && (key + "" !== 'id')) ?
+        ((obj[key] + "").toLowerCase()).includes(searchKey.toLowerCase()) : null
+    ));
+    if (list !== this.state.dataSource) {
+      this.setState({
+        dataSource: list
+      });
+    }
+  }
+  );
+
   onSearch = (text) => {
     this.setState({
       searchValue: text
@@ -79,6 +94,9 @@ class TableContainer extends Component {
   }
 
   render() {
+    if (this.props.allUsers && this.props.allUsers.length > 0) {
+      this.filterIt(this.props.allUsers, this.state.searchValue);
+    }
     // Columns
     const columns = [
       {
