@@ -3,19 +3,21 @@ import { Input } from 'antd';
 import PropTypes from 'prop-types';
 const Search = Input.Search;
 
-const SearchInput = ({ placeholder, onSearch }) => {
+const SearchInput = ({ placeholder, onChange, value }) => {
   return (
     <Search
       placeholder={placeholder}
-      onSearch={onSearch}
+      onChange={onChange}
       enterButton
+      value={value}
     />
   );
 }
 
 SearchInput.propTypes = {
   placeholder: PropTypes.string,
-  onSearch: PropTypes.func
+  value: PropTypes.string,
+  onChange: PropTypes.func
 }
 
 export { SearchInput }
