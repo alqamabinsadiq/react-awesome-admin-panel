@@ -17,7 +17,8 @@ class TableContainer extends Component {
   state = {
     dataSource: [],
     loading: this.props.loading,
-    tableHeight: 500
+    tableHeight: 500,
+    searchValue: '',
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -70,6 +71,13 @@ class TableContainer extends Component {
   }
 
   onRecordDelete = () => { }
+
+  onSearch = (text) => {
+    this.setState({
+      searchValue: text
+    });
+  }
+
   render() {
     // Columns
     const columns = [
@@ -143,7 +151,8 @@ class TableContainer extends Component {
           <Col span={6} >
             <SearchInput
               placeholder="input search text"
-              onSearch={value => console.log(value)}
+              onChange={(e) => { this.onSearch(e.target.value); }}
+              value={this.state.searchValue}
             />
           </Col>
           <Col span={4} offset={14} style={{ justifyContent: 'flex-end', flexDirection: 'row', display: 'flex' }}>
