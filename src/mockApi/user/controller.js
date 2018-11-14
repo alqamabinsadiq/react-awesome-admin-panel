@@ -1,4 +1,5 @@
 import db from './db.json';
+import Mock from 'mockjs';
 
 export const login = (email, password) => {
   for (const user of db) {
@@ -15,7 +16,8 @@ export const login = (email, password) => {
 export const getUsers = () => {
   const data = db.map((user) => {
     delete user.password;
+    user.image = Mock.Random.image('100x100', Mock.Random.color(), '#FFF', 'png', user.firstName.substr(0, 1));
     return user;
   });
-  setTimeout(() => Promise.resolve(data), 1000);
+  return new Promise((resolve) => setTimeout(() => resolve(data), 1000))
 }
