@@ -6,6 +6,7 @@ import { openNotificationWithIcon } from '../../utils/notification';
 export const actions = {
   SET_USER_INFO: "SET_USER_INFO",
   SET_ALL_USERS: "SET_ALL_USERS",
+  SET_USER_LOADER: "SET_USER_LOADER"
 };
 
 // set's the user to redux.
@@ -16,9 +17,15 @@ export const setUser = (data) => ({
 
 // set's all the users to redux.
 export const setAllUsers = (data) => ({
-  type: actions.SET_USER_INFO,
+  type: actions.SET_ALL_USERS,
   data
-})
+});
+
+// Set's user loader
+export const setUserLoader = (data) => ({
+  type: actions.SET_USER_LOADER,
+  data
+});
 
 // performs user authentication.
 export const userLogin = (data, resolve, reject) => {
@@ -52,6 +59,7 @@ export const getAllUsers = (resolve, reject) => {
     return getUsers().
       then((data) => {
         dispatch(setAllUsers(data));
+        console.log(data);
         resolve();
       }).
       catch(() => {
