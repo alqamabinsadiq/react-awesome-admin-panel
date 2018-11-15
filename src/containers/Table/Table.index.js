@@ -93,7 +93,11 @@ class TableContainer extends Component {
     });
   }
 
-  onRecordDelete = () => { }
+  onRecordDelete = (record) => {
+    this.props.setUserLoader(true);
+    let newSource = this.state.dataSource.filter(user => user.id !== record.id)
+    this.setState({ dataSource: newSource }, () => { this.props.setUserLoader(false); });
+  }
 
   filterIt = memoize((arr, searchKey) => {
     const list = arr.filter(obj => Object.keys(obj).some((key) =>
@@ -119,6 +123,7 @@ class TableContainer extends Component {
     if (this.props.allUsers && this.props.allUsers.length > 0) {
       this.filterIt(this.props.allUsers, this.state.searchValue);
     }
+
     // Columns
     const columns = [
       {
@@ -174,9 +179,9 @@ class TableContainer extends Component {
         // fixed: 'right',
         render: (text, record) => {
           return (
-            <Popconfirm title="Are you sure you want to delete?" onConfirm={() => console.log('confirmed')}>
+            <Popconfirm title="Are you sure you want to delete?" onConfirm={() => this.onRecordDelete(record)}>
               <div style={{ width: '100%', textAlign: 'center' }}>
-                <Icon style={{ alignSelf: 'center', cursor: 'pointer', fontSize: '1.7em', color: 'rgb(255,143,143)', padding: 4, background: '#efeded', borderRadius: 25, boxShadow: '1px 1px 1px rgba(0,0,0,0.3)' }} type="delete" />
+                <Icon style={{ alignSelf: 'center', cursor: 'pointer', fontSize: '1.7em', color: 'rgb(255,143,143)', padding: 4, background: '#efeded', borderRadius: 25, boxShadow: '1px 1px 1px rgba(0,0,0,0.3)' }} type="user-delete" />
               </div>
             </Popconfirm>
           );
@@ -184,7 +189,6 @@ class TableContainer extends Component {
       }
     ];
 
-    // TODO: refactor code and create a static HEader.
     return (
       <div>
         <TableContainer.TableHeader searchValue={this.state.searchValue} onSearch={this.onSearch} />
