@@ -21,7 +21,7 @@ export const setAllUsers = (data) => ({
   data
 });
 
-// Set's user loader
+// Set's user loader.
 export const setUserLoader = (data) => ({
   type: actions.SET_USER_LOADER,
   data

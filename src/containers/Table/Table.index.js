@@ -31,6 +31,28 @@ class TableContainer extends Component {
     return null;
   }
 
+  static TableHeader = ({ searchValue, onSearch }) => {
+    return (
+      < Row style={{ paddingTop: 15, paddingBottom: 15 }}>
+        <Col span={6} >
+          <SearchInput
+            placeholder="input search text"
+            onChange={(e) => { onSearch(e.target.value); }}
+            value={searchValue}
+          />
+        </Col>
+        <Col span={4} offset={14} style={{ justifyContent: 'flex-end', flexDirection: 'row', display: 'flex' }}>
+          <Button
+            type="primary"
+            iconType="plus"
+            hasIcon={true}
+            label="Add New Record"
+          />
+        </Col>
+      </Row >
+    )
+  }
+
   componentDidMount() {
     this.getTableData();
     this.handleResize();
@@ -165,23 +187,7 @@ class TableContainer extends Component {
     // TODO: refactor code and create a static HEader.
     return (
       <div>
-        <Row style={{ paddingTop: 15, paddingBottom: 15 }}>
-          <Col span={6} >
-            <SearchInput
-              placeholder="input search text"
-              onChange={(e) => { this.onSearch(e.target.value); }}
-              value={this.state.searchValue}
-            />
-          </Col>
-          <Col span={4} offset={14} style={{ justifyContent: 'flex-end', flexDirection: 'row', display: 'flex' }}>
-            <Button
-              type="primary"
-              iconType="plus"
-              hasIcon={true}
-              label="Add New Record"
-            />
-          </Col>
-        </Row>
+        <TableContainer.TableHeader searchValue={this.state.searchValue} onSearch={this.onSearch} />
         <Table
           columns={columns} dataSource={this.state.dataSource} bordered size="middle" loading={this.state.loading}
           scroll={{ y: this.state.tableHeight }} pagination={false} onChange={this.handleChange}
