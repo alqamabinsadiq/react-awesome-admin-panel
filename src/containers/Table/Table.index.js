@@ -15,6 +15,7 @@ class TableContainer extends Component {
     allUsers: PropTypes.array,
   }
 
+  // Initial State
   state = {
     dataSource: [],
     loading: this.props.loading,
@@ -31,6 +32,7 @@ class TableContainer extends Component {
     return null;
   }
 
+  // Search + Add Button
   static TableHeader = ({ searchValue, onSearch }) => {
     return (
       < Row style={{ paddingTop: 15, paddingBottom: 15 }}>
@@ -93,6 +95,7 @@ class TableContainer extends Component {
     });
   }
 
+  // Deletes a record.
   onRecordDelete = (record) => {
     this.props.setUserLoader(true);
     let newSource = this.state.dataSource.filter(user => user.id !== record.id)
@@ -195,6 +198,7 @@ class TableContainer extends Component {
         <Table
           columns={columns} dataSource={this.state.dataSource} bordered size="middle" loading={this.state.loading}
           scroll={{ y: this.state.tableHeight }} pagination={false} onChange={this.handleChange}
+          rowKey={record => record.id}
         />
       </div >
     );
