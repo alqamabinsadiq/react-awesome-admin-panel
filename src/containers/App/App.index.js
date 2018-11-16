@@ -6,6 +6,7 @@ import Logo from '../../assets/images/logo.png';
 import { logout } from '../../actions/user';
 import SiderMenu from '../../components/Menu/Menu';
 import { push } from 'react-router-redux';
+import ModalContainer from '../Modal';
 import './App.style.scss';
 const { Header, Sider, Content, Footer } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -83,7 +84,6 @@ class App extends Component {
   }
 
   onMenuSelect = (key) => {
-    console.log(key);
     this.props.push(key);
   }
 
@@ -91,6 +91,7 @@ class App extends Component {
     const { children } = this.props;
     return (
       <div className="reactRoot">
+        <ModalContainer />
         <Layout style={{ height: '100vh' }}>
           <App.Sider collapsed={this.state.collapsed} onMenuSelect={this.onMenuSelect} />
           <Layout>
