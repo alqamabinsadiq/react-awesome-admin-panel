@@ -6,6 +6,7 @@ import { openNotificationWithIcon } from '../../utils/notification';
 export const actions = {
   SET_USER_INFO: "SET_USER_INFO",
   SET_ALL_USERS: "SET_ALL_USERS",
+  SET_CURRENT_USER: "SET_CURRENT_USER",
   SET_USER_LOADER: "SET_USER_LOADER"
 };
 
@@ -24,6 +25,12 @@ export const setAllUsers = (data) => ({
 // Set's user loader.
 export const setUserLoader = (data) => ({
   type: actions.SET_USER_LOADER,
+  data
+});
+
+// Set's current user in redux.
+export const setCurrentUser = (data) => ({
+  type: actions.SET_CURRENT_USER,
   data
 });
 
