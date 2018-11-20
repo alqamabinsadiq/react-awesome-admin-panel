@@ -12,7 +12,6 @@ import {
 } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
 const FormItem = Form.Item;
-const CheckboxGroup = Checkbox.Group;
 // const Option = Select.Option;
 
 // Layout
@@ -33,6 +32,22 @@ class modal extends Component {
       loading: 0,
       spinner: false,
     };
+  }
+
+  static FormInput = ({ label, initialValue, name, message, required, isDisabled, getFieldDecorator }) => {
+    return (
+      <FormItem label={label} hasFeedback {...formItemLayout}>
+        {getFieldDecorator(name, {
+          initialValue,
+          rules: [
+            {
+              required,
+              message
+            }
+          ]
+        })(<Input disabled={isDisabled} />)}
+      </FormItem>
+    )
   }
 
   componentDidMount() {
