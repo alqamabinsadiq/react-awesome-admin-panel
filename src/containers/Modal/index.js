@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 // Actions
-// import * as ModalActions from '../../actions/modal';
+import * as ModalActions from '../../actions/modal';
 // Containers
 
 
@@ -43,7 +43,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    // ...ModalActions
+    ...ModalActions
   }, dispatch);
 };
 
