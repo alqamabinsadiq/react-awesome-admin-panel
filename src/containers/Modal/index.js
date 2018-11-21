@@ -5,12 +5,14 @@ import { bindActionCreators } from 'redux';
 // Actions
 import * as ModalActions from '../../actions/modal';
 // Containers
+import UserModalContainer from './UserModalContainer';
 
 
 class Modal extends Component {
   renderModal = () => {
     switch (this.props.template) {
-
+      case 'user-modal':
+        return <UserModalContainer />;
       default: {
         return null;
       }
