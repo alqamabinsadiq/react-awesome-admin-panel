@@ -5,11 +5,13 @@ import PropTypes from 'prop-types';
 import memoize from "memoize-one";
 import { Button, SearchInput } from '../../components/Shared'
 import { getAllUsers, setUserLoader } from '../../actions/user';
+import { openModal } from '../../actions/modal';
 
 class TableContainer extends Component {
   // PropTypes
   static propTypes = {
     getAllUsers: PropTypes.func,
+    openModal: PropTypes.func,
     setUserLoader: PropTypes.func,
     loading: PropTypes.bool,
     allUsers: PropTypes.array,
@@ -33,7 +35,7 @@ class TableContainer extends Component {
   }
 
   // Search + Add Button
-  static TableHeader = ({ searchValue, onSearch }) => {
+  static TableHeader = ({ searchValue, onSearch, onAdd }) => {
     return (
       < Row style={{ paddingTop: 15, paddingBottom: 15 }}>
         <Col span={6} >
@@ -49,6 +51,7 @@ class TableContainer extends Component {
             iconType="plus"
             hasIcon={true}
             label="Add New Record"
+            onClick={onAdd}
           />
         </Col>
       </Row >
@@ -194,7 +197,9 @@ class TableContainer extends Component {
 
     return (
       <div>
-        <TableContainer.TableHeader searchValue={this.state.searchValue} onSearch={this.onSearch} />
+        <TableContainer.TableHeader searchValue={this.state.searchValue} onSearch={this.onSearch} onAdd={() => {
+          this.props.openModal('user-modal');
+        }} />
         <Table
           columns={columns} dataSource={this.state.dataSource} bordered size="middle" loading={this.state.loading}
           scroll={{ y: this.state.tableHeight }} pagination={false} onChange={this.handleChange}
@@ -212,4 +217,4 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps, { getAllUsers, setUserLoader })(TableContainer);
+export default connect(mapStateToProps, { getAllUsers, setUserLoader, openModal })(TableContainer);
