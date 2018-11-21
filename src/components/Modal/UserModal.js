@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // Components
 import {
-  Checkbox,
+  // Checkbox,
   Form,
   Input,
   Modal,
@@ -23,7 +23,7 @@ const formItemLayout = {
     span: 14
   }
 };
-class modal extends Component {
+class UserModal extends Component {
   constructor(props) {
     super(props);
 
@@ -51,9 +51,9 @@ class modal extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.input.focus();
-    });
+    // setTimeout(() => {
+    //   this.input.focus();
+    // });
   }
 
   handleOk() {
@@ -71,73 +71,40 @@ class modal extends Component {
       }
       if (!error) {
         console.log('ok', values);
-        // server validate
-        const reg = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s/0-9]*$/;
-        if ((!isNaN(values.phoneNumber) && reg.test(values.phoneNumber)) || values.phoneNumber === '' || values.phoneNumber === '-') {
-          let data = {};
+        let data = {};
 
-          data = {
-            ...this.props.form.getFieldsValue(),
-            _id: this.props.item ? this.props.item._id : null
-          };
+        data = {
+          ...this.props.form.getFieldsValue(),
+          _id: this.props.item ? this.props.item._id : null
+        };
 
-          if (values.firstName.charAt(0) === ' ') {
-            this.props.form.setFields({
-              firstName: {
-                value: values.firstName,
-                errors: [new Error('First letter should not be a space.')],
-              },
-            });
-            this.setState({
-              clicked: false,
-              spinner: false
-            });
-          } else if (values.lastName.charAt(0) === ' ') {
-            this.props.form.setFields({
-              lastName: {
-                value: values.lastName,
-                errors: [new Error('First letter should not be a space.')],
-              },
-            });
-            this.setState({
-              clicked: false,
-              spinner: false
-            });
-          }
-          else {
-            this.props.onOk({ ...data, username: data.username.toLowerCase() });
-            this.props.form.resetFields();
-            console.log('error', error, values);
-          }
-        }
-        else {
+        if (values.firstName.charAt(0) === ' ') {
           this.props.form.setFields({
-            phoneNumber: {
-              value: values.phoneNumber,
-              errors: [new Error('Please enter valid phone number')],
+            firstName: {
+              value: values.firstName,
+              errors: [new Error('First letter should not be a space.')],
             },
           });
-          if (values.firstName.charAt(0) === ' ') {
-            this.props.form.setFields({
-              firstName: {
-                value: values.firstName,
-                errors: [new Error('First letter should not be a space.')],
-              },
-            });
-          }
-          if (values.lastName.charAt(0) === ' ') {
-            this.props.form.setFields({
-              lastName: {
-                value: values.lastName,
-                errors: [new Error('First letter should not be a space.')],
-              },
-            });
-
-          }
           this.setState({
             clicked: false,
             spinner: false
           });
+        } else if (values.lastName.charAt(0) === ' ') {
+          this.props.form.setFields({
+            lastName: {
+              value: values.lastName,
+              errors: [new Error('First letter should not be a space.')],
+            },
+          });
+          this.setState({
+            clicked: false,
+            spinner: false
+          });
+        }
+        else {
+          this.props.onOk({ ...data, username: data.username.toLowerCase() });
+          this.props.form.resetFields();
+          console.log('error', error, values);
         }
       }
     });
@@ -156,7 +123,7 @@ class modal extends Component {
     const { visible, item } = this.props;
     const { getFieldDecorator } = this.props.form;
     const modalOpts = {
-      title: item ? 'Edit Worker' : 'Add New Worker',
+      title: item ? 'Edit User' : 'Add New User',
       visible,
       onOk: () => { this.handleOk(); },
       onCancel: () => { this.handleCancel(); },
@@ -168,70 +135,16 @@ class modal extends Component {
         <Modal {...modalOpts}>
           <Spin tip="Loading..." size="large" spinning={this.state.spinner}>
             <Form horizontal>
-              <FormItem label='First Name：' hasFeedback {...formItemLayout}>
-                {getFieldDecorator('firstName', {
-                  initialValue: item ? item.firstName : '',
-                  rules: [
-                    {
-                      required: true,
-                      message: 'First name is required'
-                    }
-                  ]
-                })(<Input ref={node => this.input = node} />)}
-              </FormItem>
-              <FormItem label='Last Name：' hasFeedback {...formItemLayout}>
-                {getFieldDecorator('lastName', {
-                  initialValue: item ? item.lastName : '',
-                  rules: [
-                    {
-                      required: true,
-                      message: 'Last name is required'
-                    }
-                  ]
-                })(<Input />)}
-              </FormItem>
-              <FormItem label='Email:' hasFeedback {...formItemLayout}>
-                {getFieldDecorator('email', {
-                  initialValue: item ? item.username : '',
-                  rules: [
-                    {
-                      required: true,
-                      message: 'Email is required',
-                    }, {
-                      type: 'email',
-                      message: 'Please enter a valid email address',
-                    }
-                  ]
-                })(<Input />)}
-              </FormItem>
-              <FormItem label='Age' hasFeedback {...formItemLayout}>
-                {getFieldDecorator('age', {
-                  initialValue: item ? item.phoneNumber : '',
-                  rules: [
-                    {
-                      required: true,
-                      message: 'Phone number is required'
-                    }
-                  ]
-                })(
-                  <Input
-                  />
-                )}
-              </FormItem>
-              <FormItem label='Address' hasFeedback {...formItemLayout}>
-                {getFieldDecorator('address', {
-                  initialValue: item ? item.phoneNumber : '',
-                  rules: [
-                    {
-                      required: true,
-                      message: 'Phone number is required'
-                    }
-                  ]
-                })(
-                  <Input
-                  />
-                )}
-              </FormItem>
+              <UserModal.FormInput
+                label={'First Name：'} name="firstName" initialValue={item ? item.firstName : ''}
+                getFieldDecorator={getFieldDecorator} message="First name is required" required={true}
+                isDisabled={false}
+              />
+              <UserModal.FormInput
+                label={'Last Name：'} name="lastName" initialValue={item ? item.lastName : ''}
+                getFieldDecorator={getFieldDecorator} message="Last name is required" required={true}
+                isDisabled={false}
+              />
             </Form>
           </Spin>
         </Modal>
@@ -241,7 +154,7 @@ class modal extends Component {
   }
 }
 
-modal.propTypes = {
+UserModal.propTypes = {
   visible: PropTypes.any,
   form: PropTypes.object,
   item: PropTypes.object,
@@ -249,4 +162,4 @@ modal.propTypes = {
   onCancel: PropTypes.func
 };
 
-export default Form.create()(modal);
+export default Form.create()(UserModal);
