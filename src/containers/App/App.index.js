@@ -3,7 +3,7 @@ import { Layout, Menu, Icon } from 'antd';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Logo from '../../assets/images/logo.png';
-import { logout } from '../../actions/user';
+import { logout } from '../../services/user.services';
 import SiderMenu from '../../components/Menu/Menu';
 import { push } from 'react-router-redux';
 import ModalContainer from '../Modal';
