@@ -78,7 +78,8 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "babel-build": "babel src/ -d lib/"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -127,10 +128,14 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      "react-app",
+      "flow"
     ]
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.86.0",
     "gh-pages": "^2.0.1",
     "node-sass": "^4.9.3"
   }
