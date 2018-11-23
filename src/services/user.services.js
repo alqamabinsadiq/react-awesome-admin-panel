@@ -1,7 +1,7 @@
 import { replace } from 'react-router-redux';
-import { openNotificationWithIcon } from '../../utils/notification';
-import { setUser, setAllUsers } from '../actions/user';
-import { login, getUsers } from '../../mockApi/user/controller';
+import { openNotificationWithIcon } from '../utils/notification';
+import { setUser, setAllUsers } from '../actions/user.action';
+import { login, getUsers } from '../mockApi/user/controller';
 
 // performs user authentication.
 export const userLogin = (data, resolve, reject) => {

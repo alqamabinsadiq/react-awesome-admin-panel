@@ -3,7 +3,7 @@ import { Button, Row, Form, Input } from 'antd';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Logo from '../../assets/images/logo.png';
-import { userLogin } from '../../actions/user';
+import { userLogin } from '../../services/user.services';
 import './Login.style.scss';
 
 const FormItem = Form.Item;

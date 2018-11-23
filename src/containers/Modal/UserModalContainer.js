@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import { setCurrentUser } from '../../actions/user';
+import { setCurrentUser } from '../../actions/user.action';
 import UserModal from '../../components/Modal/UserModal';
-import { closeModal } from '../../actions/modal';
+import { closeModal } from '../../actions/modal.action';
 
 class UserModalContainer extends Component {
   static propTypes = {
