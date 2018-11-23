@@ -1,4 +1,4 @@
-import { actions } from '../../actions/modal';
+import { actions } from '../../actions/modal.action';
 
 const INITIAL_STATE = {
   template: '',
