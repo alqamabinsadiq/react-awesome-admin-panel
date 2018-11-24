@@ -1,3 +1,5 @@
+//@flow
+
 // action types.
 export const actions = {
   SET_USER_INFO: "SET_USER_INFO",
@@ -7,25 +9,25 @@ export const actions = {
 };
 
 // set's the user to redux.
-export const setUser = (data) => ({
+export const setUser = (data: any): { type: string, data: any } => ({
   type: actions.SET_USER_INFO,
   data
 });
 
 // set's all the users to redux.
-export const setAllUsers = (data) => ({
+export const setAllUsers = (data: any): { type: string, data: any } => ({
   type: actions.SET_ALL_USERS,
   data
 });
 
 // Set's user loader.
-export const setUserLoader = (data) => ({
+export const setUserLoader = (data: boolean): { type: string, data: boolean } => ({
   type: actions.SET_USER_LOADER,
   data
 });
 
 // Set's current user in redux.
-export const setCurrentUser = (data) => ({
+export const setCurrentUser = (data: {}): { type: string, data: any } => ({
   type: actions.SET_CURRENT_USER,
   data
 });
