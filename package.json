@@ -128,13 +128,11 @@
   },
   "babel": {
     "presets": [
-      "react-app",
-      "flow"
+      "react-app"
     ]
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-flow": "^6.23.0",
     "flow-bin": "^0.86.0",
     "gh-pages": "^2.0.1",
     "node-sass": "^4.9.3"
