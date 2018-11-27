@@ -3,7 +3,7 @@ import { Input, Form } from 'antd';
 import PropTypes from 'prop-types';
 const FormItem = Form.Item;
 
-const FormInput = ({ getFieldDecorator, hasLabel, label, name, initialValue, isDisabled = false, message, formItemLayout, placeholder, isRequired = true }) => {
+const FormInput = ({ getFieldDecorator, hasLabel, type, label, name, initialValue, isDisabled = false, message, formItemLayout, placeholder, isRequired = true }) => {
   return (
     <FormItem label={hasLabel ? label : null} hasFeedback {...formItemLayout}>
       {getFieldDecorator(name, {
@@ -14,13 +14,14 @@ const FormInput = ({ getFieldDecorator, hasLabel, label, name, initialValue, isD
             message: message
           }
         ]
-      })(<Input disabled={isDisabled} placeholder={placeholder} />)}
+      })(<Input disabled={isDisabled} placeholder={placeholder} type={type} />)}
     </FormItem>
   );
 }
 
 FormInput.propTypes = {
   label: PropTypes.string,
+  type: PropTypes.string,
   name: PropTypes.string,
   initialValue: PropTypes.string,
   isDisabled: PropTypes.bool,
