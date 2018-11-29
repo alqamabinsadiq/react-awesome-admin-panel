@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Table, Row, Col, Icon, Popconfirm } from 'antd';
 import PropTypes from 'prop-types';
 import memoize from "memoize-one";
-import { Button, SearchInput } from '../../components/Shared'
-import { getAllUsers } from '../../services/user.services';
-import { setUserLoader } from '../../actions/user.action';
-import { openModal } from '../../actions/modal.action';
+import { Button, SearchInput } from 'components/Shared'
+import { getAllUsers } from 'services/user.services';
+import { setUserLoader } from 'actions/user.action';
+import { openModal } from 'actions/modal.action';
 
 class TableContainer extends Component {
   // PropTypes

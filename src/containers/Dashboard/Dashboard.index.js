@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Row, Col, Card, Progress, Badge, Timeline } from 'antd';
-import NumberCard from '../../components/NumberCard/NumberCard';
+import NumberCard from 'components/NumberCard/NumberCard';
 // import { Doughnut } from '../../components/Charts/Doughnut';
-import Bar from '../../components/Charts/Bar';
+import Bar from 'components/Charts/Bar';
 import CountUp from 'react-countup';
 import './Dashboard.style.scss';
 

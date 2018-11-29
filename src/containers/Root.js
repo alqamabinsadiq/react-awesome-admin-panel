@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router';
 import routes from './routes';
 import App from './App/App.index';
 // import { route } from '../actions/user';
-import NotFound from '../components/NotFoundPage/NotFoundPage';
+import NotFound from 'components/NotFoundPage/NotFoundPage';
 
 // renders the routes from the configuration object
 const RouteWithSubRoutes = (route) => (

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 // Actions
-import * as ModalActions from '../../actions/modal.action';
+import * as ModalActions from 'actions/modal.action';
 // Containers
 import UserModalContainer from './UserModalContainer';
 
